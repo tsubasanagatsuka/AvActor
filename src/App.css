@@ -1,38 +1,103 @@
-.App {
+/* === ヘッダー全体のスタイル === */
+.header {
+  background-color: #fafafa;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* === ロゴ画像のスタイル === */
+.logo {
+  height: 50px;
+  width: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* === ナビゲーションバー全体 === */
+.nav-bar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center;      /* 中央寄せ */
+  background-color: #f8aad8;     /* 赤背景 */
+  padding: 10px 0;
+  gap: 0;                        /* リンク間の隙間なし（borderで調整するなら） */
 }
 
-.App-link {
-  color: #61dafb;
+/* 各ナビゲーションリンク */
+.nav-link {
+  flex: 1;                       /* 均等に幅を分配 */
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+
+  transition: background-color 0.3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-link:hover {
+  background-color: #ff99fa;
+}
+
+/* ===== 全体レイアウト・背景・フォント設定 ===== */
+body {
+  font-family: sans-serif;           /* 全体のフォント */
+  margin: 20px;                      /* 画面周りの余白 */
+  background-color: #fafafa;         /* 背景色（薄いグレー） */
+}
+
+/* ===== トップのコンテナ（全体を囲む） ===== */
+.product-container {
+  text-align: center;               /* 中央寄せ */
+}
+
+/* ===== 商品を並べるグリッドレイアウト（3列） ===== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 横に2列 */
+  gap: 20px;                        /* カード間の隙間 */
+  max-width: 1500px;                 /* 最大幅 */
+  margin: 0 auto;                   /* 中央寄せ */
+}
+
+/* ===== 商品カードの見た目（白背景＋影など） ===== */
+.product-card {
+  background-color: #ffffff;           /* 背景を白に */
+  padding: 20px;                    /* 内側の余白 */
+  border-radius: 10px;              /* 角を丸める */
+  box-shadow: 0 0 10px rgb(230, 146, 188); /* うっすら影 */
+  box-sizing: border-box;           /* padding含めてサイズ調整 */
+  display: flex;
+  flex-direction: column;           /* 縦並びに */
+  align-items: center;              /* 横位置を中央に */
+}
+
+/* ===== 画像と動画に共通するスタイル ===== */
+.media {
+  width: 100%;                      /* 親要素いっぱいに広げる */
+  height: auto;                     /* 高さは自動調整 */
+  aspect-ratio: 16 / 9;             /* 縦横比を16:9に固定 */
+  object-fit: cover;                /* 縦横比を保ちつつ切り抜き */
+  border-radius: 10px;              /* 角を丸める */
+  display: block;                   /* インライン要素をブロックに */
+}
+
+/* ===== 動画の特有な見た目調整（リセット） ===== */
+.media video,
+video.media {
+  display: block;                   /* ブロック要素化 */
+  width: 100% !important;           /* 横幅を100%に */
+  height: auto !important;          /* 高さは自動調整 */
+  border: none;                     /* 枠線なし */
+  padding: 0;
+  margin: 0;
+  object-fit: cover;                /* 動画も切り抜き調整 */
+}
+
+/* ===== 各種テキストの見た目 ===== */
+h2 {
+  font-size: 1rem;                  /* タイトルの文字サイズ */
+  margin: 10px 0;
+}
+
+h3, h4 {
+  font-size: 0.9rem;                /* サブタイトルの文字サイズ */
+  margin: 5px 0;
 }
